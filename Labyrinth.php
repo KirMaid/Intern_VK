@@ -1,13 +1,13 @@
 <?php
 class Labyrinth {
-    public int $height;
-    public int $width;
-    public array $start = [];
-    public array $end = [];
-    public array $labyrinth = [];
-    public array $route = [];
+    protected int $height;
+    protected int $width;
+    protected array $start = [];
+    protected array $end = [];
+    protected array $labyrinth = [];
+    protected array $route = [];
 
-    public const MOVE_DIRECTIONS = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+    protected const MOVE_DIRECTIONS = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
     public function run(): void {
         try {
@@ -19,7 +19,7 @@ class Labyrinth {
         }
     }
 
-    public function input(): void {
+    protected function input(): void {
         $input = fgets(STDIN);
         if ($input === false) {
             throw new Exception("Invalid input: unable to read labyrinth size.");
@@ -73,7 +73,7 @@ class Labyrinth {
         }
     }
 
-    public function output(): void {
+    protected function output(): void {
         if (!empty($this->route)) {
             foreach ($this->route as $coord) {
                 echo $coord[0] . ' ' . $coord[1] . "\n";
@@ -84,7 +84,7 @@ class Labyrinth {
         }
     }
 
-    public function findPathBfs(): void {
+    protected function findPathBfs(): void {
         $queue = new SplQueue();
         $queue->enqueue([$this->start, [$this->start]]);
         $visited = array_fill(0, $this->height, array_fill(0, $this->width, false));
