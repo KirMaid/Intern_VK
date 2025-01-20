@@ -1,0 +1,1 @@
+Invalid end position: cannot end on a wall.

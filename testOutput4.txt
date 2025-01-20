@@ -1,0 +1,1 @@
+Invalid input: labyrinth size must consist of two numbers.
